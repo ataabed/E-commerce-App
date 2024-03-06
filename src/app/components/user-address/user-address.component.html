@@ -1,0 +1,101 @@
+<section>
+    <div class="mt-5 pb-5">
+        <form [formGroup]="addressForm" class="w-75 mx-auto" (ngSubmit)="addUserShippingAddress()">
+            <h5>
+                add new shipping Address :
+            </h5>
+            <div *ngIf="errorMsg" class="alert alert-danger p-1 mt-2 rounded-4">
+                <p>{{errorMsg}}</p>
+
+            </div>
+
+            <div class="mb-3 mt-3">
+                <label for="name" class="form-label">Name:</label>
+                <input type="text" class="form-control" formControlName="name" id="name" placeholder="yourn Name"
+                    name="name">
+                <div *ngIf="addressForm.get('name')?.touched==true &&addressForm.get('name')?.errors!=null"
+                    class="alert alert-danger p-1 mt-2 rounded-4">
+                    <p *ngIf="addressForm.get('name')?.getError('required')">name is required</p>
+                    <p *ngIf="addressForm.get('name')?.getError('minlength')">min length=4</p>
+
+                    <p *ngIf="addressForm.get('name')?.getError('maxlength')">max length =100</p>
+
+                </div>
+
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="details" class="form-label">details:</label>
+                <input type="text" class="form-control" formControlName="details" id="details" placeholder="address details"
+                    name="details">
+                <div *ngIf="addressForm.get('details')?.touched==true &&addressForm.get('details')?.errors!=null"
+                    class="alert alert-danger p-1 mt-2 rounded-4">
+                    <p *ngIf="addressForm.get('details')?.getError('required')">address details is required</p>
+                    <p *ngIf="addressForm.get('details')?.getError('minlength')">min length=4</p>
+
+                    <p *ngIf="addressForm.get('details')?.getError('maxlength')">max length = 20</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="mb-3">
+                <label for="phone" class="form-label">phone:</label>
+                <input type="tel" class="form-control" formControlName="phone" id="phone" placeholder="your phone"
+                    name="phone">
+
+                <div *ngIf="addressForm.get('phone')?.touched==true &&addressForm.get('phone')?.errors!=null"
+                    class="alert alert-danger p-1 mt-2 rounded-4">
+                    <p *ngIf="addressForm.get('phone')?.getError('required')">phone is required</p>
+                    <p *ngIf="addressForm.get('phone')?.getError('pattern')">enter valid egyption number</p>
+
+
+
+                </div>
+
+
+            </div>
+
+            <div class="mb-3 mt-3">
+                <label for="city" class="form-label">city:</label>
+                <input type="text" class="form-control" formControlName="city" id="city" placeholder="City"
+                    name="city">
+                <div *ngIf="addressForm.get('city')?.touched==true &&addressForm.get('city')?.errors!=null"
+                    class="alert alert-danger p-1 mt-2 rounded-4">
+                    <p *ngIf="addressForm.get('city')?.getError('required')">address details is required</p>
+                    <p *ngIf="addressForm.get('city')?.getError('minlength')">min length=3</p>
+
+                    <p *ngIf="addressForm.get('city')?.getError('maxlength')">max length = 20</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="d-flex ">
+           <!--      <button [disabled]="addressForm.invalid" (click)="addUserShippingAddress()
+                " type="button"
+                    class="btn btnSubmit ms-auto ">
+
+                    <span class="d-inline-block me-2">Buy</span>
+                    <i *ngIf="isLoading" class="fa fa-spin fa-spinner"></i>
+                </button>
+ -->
+
+                <div class="dropdown">
+                    <button type="button"  [disabled]="addressForm.invalid"class="btn btn-addToCart dropdown-toggle" data-bs-toggle="dropdown">
+                      Payment Method
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li> <a (click)="addUserShippingAddress()"   class="mouse-pointer  dropdown-item">Visa</a>
+                      </li>
+                      <li> <a (click)="addUserShippingAddress_cash()"   class=" mouse-pointer dropdown-item">Cash</a>
+                      </li>
+                    
+                    </ul>
+                  </div>
+
+            </div>
+        </form>
+    </div>
+</section>

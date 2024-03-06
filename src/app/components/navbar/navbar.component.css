@@ -1,0 +1,31 @@
+.nav-link
+{
+    text-transform:capitalize;
+}
+
+.active_link
+{
+    background-color: var(--main-color);
+    border-radius: 0.25rem;
+    color: var(--light-color);
+
+}
+
+.cartNumber
+{
+    color: var(--light-color);
+    background: var(--main-color);
+    position: absolute;
+  /*   top:0;
+   right:0; */
+
+}
+.navbar
+{
+    transition: padding 400ms;
+}
+.badge
+{
+    top: 0px;
+    left: 16px;
+}

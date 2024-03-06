@@ -1,0 +1,56 @@
+<section class="py-5">
+
+  <div *ngIf="showLoader"
+  class="category-loader d-flex justify-content-center align-items-center position-fixed top-0 bottom-0 start-0 end-0 bg-white">
+
+  <span class="loader"></span>
+</div>
+
+<div *ngIf="showLoader===false" class="row g-3">
+</div>
+
+    <div class="row g-3">
+        <div *ngFor="let brand of  this.brandslst" class="col-3  ">
+            <div (click)="getSpecificBrand(brand._id)"  class="py-2 cursor_pointer border border-1 rounded-3 card-box">
+                <img [src]="brand.image" class="w-100" alt="">
+                <h4 class="text-center">{{brand.name}}</h4>
+
+
+
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
+
+
+
+<div #myModal class="modal fade "  id="exampleModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">{{this.specificBrand.name}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+<div class="row justify-content-center align-items-center">
+    <div class="col-6">
+<h3 class="main-color">{{this.specificBrand.slug}}</h3>
+<h6>{{this.specificBrand.name}}</h6>
+    </div>
+
+<div class="col-6">
+<img [src]="this.specificBrand.image" class="w-100" [alt]="this.specificBrand.name">
+</div>
+</div>
+
+        </div>
+        <div class="modal-footer">
+          <button (click)="closeModal()" type="button" class="btn btn-addToCart main-color" data-bs-dismiss="modal">Close</button>
+    
+        </div>
+      </div>
+    </div>
+  </div>

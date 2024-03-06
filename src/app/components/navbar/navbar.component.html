@@ -1,0 +1,67 @@
+<section class=" mb-5  ">
+    <nav #mainNavBar class="navbar navbar-expand-md   bg-light navbar-light mb-5  position-fixed fixed-top">
+        <div class="container-fluid ">
+            <a class="navbar-brand" routerLink="home">
+                <img src="assets/images/freshcart-logo.svg" alt="refresh cart logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul *ngIf="islogged==true" class="navbar-nav  ms-auto">
+
+                    <li #mainNavBarLinks class="nav-item" *ngFor="let link of links">
+
+                        <a class="nav-link" routerLinkActive="active_link" routerLink="{{link}}">{{link}}</a>
+                    </li>
+
+                </ul>
+
+                <ul class="navbar-nav ms-auto">
+                    <!--  <li class="d-flex d-none">
+        <a class="nav-link" href="#"><i class="fa fa-brands fa-instagram"></i></a>
+        <a class="nav-link" href="#"><i class="fa fa-brands fa-facebook"></i></a> 
+          <a class="nav-link" href="#"><i class="fa fa-brands fa-tiktok"></i></a>
+          <a class="nav-link" href="#"><i class="fa fa-brands fa-twitter"></i></a>
+          <a class="nav-link" href="#"><i class="fa fa-brands fa-linkedin"></i></a>
+          <a class="nav-link" href="#"><i class="fa fa-brands fa-youtube"></i></a>
+
+
+    </li> -->
+                    <li *ngIf="islogged == false">
+                        <a class="nav-link " title="register" routerLinkActive="active_link" routerLink="register"><i
+                                class="fa fa-user fa-1x  "></i></a>
+
+                    </li>
+                    <li *ngIf="islogged === false">
+                        <a class="nav-link" title="login" routerLinkActive="active_link" routerLink="login"><i
+                                class="fa fa-sign-in"></i></a>
+
+                    </li>
+                    <li *ngIf="islogged === true">
+                        <a class="nav-link" routerLinkActive="active_link"><i class="fa fa-user-circle main-color"></i>
+                            welcome {{this.registerAPI.userData.userName.getValue()}}</a>
+
+                    </li>
+                    <li *ngIf="islogged==true">
+                        <button routerLink="cart"
+                            class="nav-link cursor_pointer main-color btn border-0 d-block position-relative ">
+                            <i class="fa fa-shopping-cart "></i>
+                            <span class="badge  p-1 rounded-2 position-absolute cartNumber  ">{{cartProductCount.getValue()}}</span>
+                        </button>
+
+                    </li>
+                    <li class="ms-2" (click)="registerAPI.logout()" *ngIf="islogged==true">
+                        <a class="nav-link cursor_pointer" title="logOut" routerLinkActive="active_link"><i
+                                class="fa fa-sign-out main-color"></i></a>
+
+                    </li>
+
+                </ul>
+            </div>
+
+
+
+        </div>
+    </nav>
+</section>

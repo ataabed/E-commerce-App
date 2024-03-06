@@ -1,0 +1,52 @@
+<section class="py-5">
+
+    <div *ngIf="showLoader"
+        class=" loader-bg d-flex justify-content-center align-items-center position-relative top-0 bottom-0 start-0 end-0 w-100 ">
+        <span class="loader"></span>
+    </div>
+
+    <div *ngIf="showLoader===false">
+        <div class="row mb-3">
+            <div class="text-center col-12">
+                <h3 class="  ">Wish List</h3>
+            </div>
+
+            <div class="col-12 d-flex justify-content-between">
+                <div *ngIf="productlst.length===0" class=" col-12 d-flex justify-content-center   rounded-5">
+
+                    <p class="text-center p-3 w-100 noitems">Your wish List is Empty </p>
+
+                </div>
+
+            </div>
+            <div *ngIf="productlst.length>0">
+                <div *ngFor="let product of productlst" class="col-12 ">
+                    <div class="row my-box-border mb-2 py-3  ">
+                        <div class="col-md-3 py-2 ">
+                            <img [src]="product.imageCover" class="w-100  py-2  rounded-5" alt="">
+                        </div>
+                        <div class="col-md-6 d-flex flex-column align-items-center justify-content-center">
+                            <h4 class="fw-bold text-muted text-center px-2">{{product.title}}</h4>
+                            <h5>{{product.price | currency:"EGP"}}</h5>
+                            <button class="border border-0" (click)="removeItem(product._id)"><i
+                                    class="fa fa-trash fa-2x text-danger mouse-pointer"></i></button>
+                        </div>
+                        <div class="col-md-3 d-flex justify-content-around align-items-center">
+                            <button (click)="addProductToCart(product._id)"
+                                class="btn btn-change-count  border border-2  main-color">Add To Cart</button>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+
+</section>

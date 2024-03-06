@@ -1,0 +1,51 @@
+<section class="py-5">
+
+
+    <div *ngIf="showLoader"
+        class="category-loader d-flex justify-content-center align-items-center position-fixed top-0 bottom-0 start-0 end-0 bg-white">
+
+        <span class="loader"></span>
+    </div>
+
+    <div *ngIf="showLoader===false" class="row g-3">
+
+        <div *ngFor="let category of categoryList" class=" col-sm-4 p-3 ">
+
+            
+                <div  class="card card-box "  (click)="getCategory_sub(category._id)" [title]="category.name">
+                 
+                    <img [src]="category.image" class="card-img-top card-img rounded-0   " [alt]="category.name">
+
+                    <div class="card-footer border border-0 main-color fw-bold text-center">     
+                       <h3> {{category.name}}</h3>
+                    </div>
+                </div>
+
+
+          
+
+
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="row">
+        <div class="row g-3">
+
+            <div *ngFor="let subcategory of subList" class="card col-sm-4 border-0">
+                <div class="p-5 subcategory ">
+
+
+                    <h3 class="text-center">{{subcategory.name}}</h3>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+</section>

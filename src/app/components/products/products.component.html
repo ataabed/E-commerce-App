@@ -1,0 +1,75 @@
+<section class="container py-5">
+
+
+  <div *ngIf="showLoader"
+    class=" d-flex justify-content-center  position-relative w-100 vh-100 top-0 bottom-0 start-0 end-0 bg-white">
+
+    <span class="loader"></span>
+  </div>
+
+
+
+  <div *ngIf="showLoader===false" class="mb-4 row justify-content-center">
+
+<!--     <div class=" col-sm-4 mb-2 mb-sm-0">
+      <input list="categoryList" type="search" class="form-control " placeholder="Search by category ">
+       <input list="categoryList" type="search" [(ngModel)]="searchcategory" class="form-control " placeholder="Search by category ">
+ 
+
+      <datalist id="categoryList" >
+<option *ngFor="let c of catgoryDataList" [value]="c.name" [id]="c._id"    ()="goToCategoryProducts(c._id)">{{c.name}}</option>
+</datalist>
+    </div> -->
+    <div class="col-sm-4 mb-2 mb-sm-0">
+<!--       <input type="search"  class="form-control " placeholder="Search by title ">
+ -->   <input type="search" [(ngModel)]="searchKeyword" class="form-control " placeholder="Search by title ">
+ 
+    </div>
+  </div>
+<div *ngIf="showPagination" class="d-flex justify-content-center">
+  <ul class="pagination">
+
+    <li class="page-item cursor_pointer main-color"><a class="page-link " (click)="getProduct_Page(1)">1</a></li>
+    <li class="page-item cursor_pointer"><a class="page-link" (click)="getProduct_Page(2)">2</a></li>
+
+  </ul>
+</div>
+
+  <div *ngIf="showLoader===false" class="row g-3">
+
+    <div  #mychildern *ngFor="let p of this.productsLst | searchBycategory:searchcategory  |searchProduct:searchKeyword"
+      class="  col-sm-4 col-md-3 col-lg-3  ">
+      <div class="product-card card card-box border-0">
+        <div class="overflow-hidden mt-3 img-parent m-auto">
+          <img class="productImage w-100 h-100 card-img-top  mouse-pointer rounded-0" [src]="p.imageCover" [alt]="p.title"
+            (click)="showProductDetail(p._id)">
+        </div>
+
+        <div class="card-body">
+          <span class="card-category">{{p.category.name}}</span>
+          <h2 class=" py-3 h6">{{p.title.split(" ").splice(0,2).join(" ")}}</h2>
+
+          <div class=" d-flex justify-content-between">
+            <span class="price">{{p.price | currency:'EGP'}} </span>
+            <span class="rating"><i class="product-rating fa fa-star"></i> {{p.ratingsAverage}}</span>
+          </div>
+          <div class="d-flex justify-content-between     pt-3">
+            <div >
+              <button (click)="addProductToCart(p._id)" class="btn d-inline-block btn-addToCart  ">
+                <i class="fa fa-shopping-cart"></i></button>
+            </div>
+            <div >
+              <button  [id]="p._id" (click)="addProductToWishList(p._id )" [class]="p.isInWishList? btn_Wishlist:btn_NotWishlist ">
+                <i class=" fa fa-heart fa-2xl"></i></button>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

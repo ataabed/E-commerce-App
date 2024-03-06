@@ -1,0 +1,55 @@
+<!-- 
+<div class="container-fluid  mb-5"> -->
+
+<!--  <div class="row  mb-5"> -->
+
+<!--    navBar -->
+<!--   <section class="col-12" id="Section_NavBar" > -->
+<section class="w-100 mb-5">
+  <app-navbar></app-navbar>
+  <section class="container mt-5 mb-5 pt-5 ">
+
+
+    <div class="sideCol d-none d-sm-block">
+
+      <div>
+        <ul>
+          <li (blur)="Toggle_sideBar()" (click)="Toggle_sideBar()" class="list-unstyled ">
+            <button class="nav-link btn-addToCart border border-0" href="#"><i
+                class="fa-solid fa-bars fa-2x"></i></button>
+
+
+
+          </li>
+        </ul>
+      </div>
+      <ul id="sideBarIcons" class=" ">
+
+        <li class="d-flex flex-column main-color">
+          <a class="nav-link" href="#"><i class="sideBarIcon mb-2 fa fa-brands fa-instagram "></i></a>
+          <a class="nav-link" href="#"><i class="sideBarIcon mb-2 fa fa-brands fa-facebook "></i></a>
+          <a class="nav-link" href="#"><i class="sideBarIcon mb-2 fa fa-brands fa-tiktok"></i></a>
+          <a class="nav-link" href="#"><i class="sideBarIcon mb-2 fa fa-brands fa-twitter "></i></a>
+          <a class="nav-link" href="#"><i class="sideBarIcon mb-2 fa fa-brands fa-linkedin "></i></a>
+          <a class="nav-link" href="#"><i class=" sideBarIcon mb-2 fa fa-brands fa-youtube "></i></a>
+
+
+        </li>
+      </ul>
+
+    </div>
+    <div class="">
+      <router-outlet></router-outlet>
+    </div>
+
+  </section>
+
+</section>
+
+
+<!--   </section> -->
+
+
+<section class="container">
+  <app-footer></app-footer>
+</section>

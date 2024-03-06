@@ -1,0 +1,31 @@
+.btn-change-count
+{
+    
+    font-size: 2rem;
+    font-weight: bolder;
+    border-color: var(--main-color);
+}
+.btn-change-count:hover
+{
+    background-color: var(--main-color);
+    color: var(--light-color);
+}
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid;
+    border-color: var(--main-color) transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+  
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  } 

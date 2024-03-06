@@ -1,0 +1,102 @@
+<section class=" container mt-5 mb-5">
+  <div *ngIf="showLoader"
+    class="product-loader d-flex justify-content-center align-items-center position-fixed top-0 bottom-0 start-0 end-0 bg-white">
+
+    <span class="loader"></span>
+  </div>
+
+  <div *ngIf="showLoader===false" class="row align-items-center">
+    <div class="col-1 col-sm-12 mb-5">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item btn-link cursor_pointer"><a   (click)="goToCategoryProducts(productData?.data?.category?._id)">{{productData?.data?.category?.name}}</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{{productData?.data?.subcategory[0]?.name}}</li>
+        </ol>
+      </nav>
+<!--       <h6>{{productData?.data?.category?.name}}/{{productData?.data?.subcategory[0]?.name}}</h6>
+ -->  
+  </div>
+    <div class="col-md-4 ">
+      <!--    <owl-carousel-o [options]="customOptions">
+
+            <ng-container *ngFor="let image of productData?.data?.images">
+              <ng-template carouselSlide [id]="productData?.data_id">
+                <img [src]="image" [alt]="image" [title]="image" class="w-100 rounded-5 ">
+             
+              </ng-template>
+            </ng-container>
+        
+          </owl-carousel-o> -->
+
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators ">
+          <a type="button" data-bs-target="#carouselExampleIndicators"
+            *ngFor="let image of productData?.data?.images ; let i=index" [attr.data-bs-slide-to]="i"
+            [class]="i===0?'btn-slider-parent position-relative active':'btn-slider-parent '">
+            <img [src]="image" class="btnSlider" alt="">
+          </a>
+          <!--   <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" ></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" ></button>
+            -->
+        </div>
+        <div class="carousel-inner">
+          <!--               <tr[class]="isEven?evenClass:oddClass"*ngFor="letitemofarr;leti=index ;letisEven=even">
+ -->
+          <div *ngFor="let image of productData?.data?.images ; let i=index"
+            [class]="i===0?' border border-rounded-5 carousel-item active':'border border-rounded-5 carousel-item '">
+            <img [src]="image" class="d-block w-100 h-100" alt="...">
+          </div>
+          <!--    <div class="carousel-item">
+                <img srcimage class="d-block w-100" alt="...">
+              </div> -->
+
+        </div>
+      <!--   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button> -->
+      </div>
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="col-md-8">
+      <h2>{{productData?.data?.title}}</h2>
+      <p class="">{{productData?.data?.description}}</p>
+
+      <div class="d-flex ">
+        <span class="d-inline-block"><b>Brand:</b></span>
+        <img [src]="productData?.data?.brand?.image" class=" w-25" [alt]="productData?.data?.brand?.name">
+      </div>
+      <div class="row justify-content-between mb-3">
+        <span class="col-6 col-sm-3"><b>price:</b> {{productData?.data?.price | currency:'EGP'}}</span>
+
+        <span class="col-6 col-sm-3"><b>rating:</b><i
+            class="fa fa-star product-rating"></i>{{productData?.data?.ratingsAverage}}</span>
+      </div>
+
+      <div class="d-flex flex-column justify-content-center align-items-center flex-sm-row">
+
+        <button (click)="addProductToCart(productData?.data?._id)" class="btn  btn-addToCart  col-2 main-color"><i
+            class="fa fa-shopping-cart"></i></button>
+
+        <button [id]="productData?.data?._id" (click)="addProductToWishList(productData?.data?._id )"
+          [class]="isInWishList? btn_Wishlist:btn_NotWishlist ">
+          <i class=" fa fa-heart fa-2xl"></i></button>
+
+      </div>
+    </div>
+  </div>
+</section>

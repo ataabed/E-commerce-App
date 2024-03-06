@@ -1,0 +1,95 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&display=swap');
+
+.row
+{
+/*     --bs-gutter-x:1px;
+ */}
+:root
+{
+    --main-color:#0aad0a;
+    --light-color:#f0f3f2;
+    --shadow: rgba(145,158,171,.2) 0px 2px 4px -1px,rgba(145,158,171,.14) 0px 4px 5px 0px,rgba(145,158,171,.12) 0px 1px 10px 0px;
+    --font-family:'Encode Sans Expanded', sans-serif;
+    --rating-color:#ffc908;
+}
+
+.body
+{
+    font-family: var(--font-family) !important;
+}
+.cursor_pointer
+{
+    cursor: pointer;
+}
+
+.btnSubmit
+{
+    background-color: var(--main-color);
+    color: var(--light-color);
+}
+
+
+.card-category
+{
+    color: var(--main-color);
+    font-size: 0.8rem;
+}
+.main-color
+{
+    color: var(--main-color); 
+}
+.product-rating
+{
+    color: var(--rating-color);
+}
+.mouse-pointer
+{
+    cursor: pointer;
+}
+.btn-addToCart ,.btn-addToCart>i
+{
+    background-color: var(--main-color);
+    color: var(--light-color);
+}
+.btn-addToCart:hover
+{
+    background-color: var(--main-color);
+    color: var(--light-color);
+}
+
+@keyframes imageEffect_zoom {
+    from {transform: scale(1,1);}
+    to{transform:scale(1.5,1.3)}
+    
+}
+
+
+.productImage:hover
+{
+
+
+   animation-name:imageEffect_zoom ;
+  animation-fill-mode: both;
+  animation-duration: 500ms; 
+}
+
+.my-box-border{
+  
+    border-bottom: var(--main-color) solid 1px;
+}
+
+@keyframes box-shadow-animation {
+    from{  box-shadow: 0 0 0 #000; }
+    to{  box-shadow: 0px 0px 5px 5px #9be99b; }
+    
+}
+
+.card-box:hover
+{
+    animation-name: box-shadow-animation;
+    animation-duration: 500ms;
+    animation-fill-mode: both;
+}

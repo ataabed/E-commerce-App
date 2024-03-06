@@ -1,0 +1,67 @@
+.loader {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-block;
+    border-top: 4px solid #FF3D00;
+    border-right: 4px solid transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+  .loader::after {
+    content: '';  
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border-left: 4px solid #FF3D00;
+    border-bottom: 4px solid transparent;
+    animation: rotation 0.5s linear infinite reverse;
+  }
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  } 
+
+ /*  .btn-slider-parent
+  {
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    left:0;
+    top: 100%;
+  } */
+
+
+  .carousel-indicators{
+/*  position: relative;
+top: 100%;  */
+  }
+  .carousel-indicators [data-bs-target]
+{
+
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  left:0;
+  top: 0%;
+/*   background-color:transparent */
+}
+
+.btnSlider
+  {
+     position: absolute;
+    width: 100%;
+    height: 100%;
+    left:0;
+    top: 0%;  
+
+    border: solid var(--main-color) 0.1rem; 
+  }

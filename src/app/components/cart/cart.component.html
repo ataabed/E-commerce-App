@@ -1,0 +1,67 @@
+<section class=" container py-5 ">
+
+   <div *ngIf="showLoader" class=" loader-bg d-flex justify-content-center align-items-center position-relative top-0 bottom-0 start-0 end-0 w-100 ">
+    <span class="loader"></span>
+   </div>
+
+   <div class="bg-white p-3 fw-bold rounded-5 " *ngIf="showLoader===false&& productlst.length===0 " >
+    <h3 class="p-5 main-color fs-1  text-center">
+    your cart is empty 
+    </h3>
+</div>
+    
+
+    <div *ngIf="showLoader===false && productlst.length>0" >
+        <div class="row mb-3">
+            <h3 class="col-12 col-md-2 mx-auto mb-5">shoppingCart</h3>
+            <div class="col-12 mb-3 border-bottom border-2  d-flex flex-column flex-md-row justify-content-between">
+                <div class="col-12 col-md-6 text-center ">
+                    <h3>
+                        total Price : {{totalPrice | currency:'EGP'}}
+                    </h3>
+
+
+                </div>
+                <div class="col-12 col-md-6 text-center ">
+                    <h3>
+                        Items : {{numOfCartItems}}
+                    </h3>
+
+
+                </div>
+            </div>
+            <div *ngFor="let product of productlst" class="col-12 ">
+                <div class="row my-box-border mb-2 py-3  ">
+                    <div class="col-md-3 text-center p-0 ">
+                        <img [src]="product.product.imageCover" class="w-100  p-0  rounded-5" alt="">
+                    </div>
+                    <div class="col-md-6 d-flex flex-column align-items-center justify-content-between">
+                        <h4 class="fw-bold text-muted text-center px-2">{{product.product.title}}</h4>
+                        <h5>{{product.price | currency:"EGP"}}</h5>
+                        <button class="border border-0" (click)="removeItem(product.product._id)"><i
+                                class="fa fa-trash fa-2x text-danger mouse-pointer"></i></button>
+                    </div>
+                    <div class="col-3   m-auto py-5  btn-group-sm align-items-center ">
+                        <button (click)="updateItemCount(product.product._id,product.count+1)" class="btn btn-change-count  border border-2  main-color">+</button>
+                        <button class="btn btn-change-count  border-0 main-color">{{product.count}}</button>
+                        <button (click)="updateItemCount(product.product._id,product.count-1)"  class="btn btn-change-count   border border-2  main-color"> -</button>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="d-flex">
+            <button *ngIf="this.productlst.length>0"  (click)="ClearCart()" class="btn btn-addToCart  main-color ">Clear Cart</button>
+
+            <button (click)="checkOut()"  *ngIf="productlst.length>0" class="btn btn-addToCart  d-inline-block ms-auto">Continue</button>
+      
+       
+          
+       
+        </div>
+    </div>
+
+
+</section>
