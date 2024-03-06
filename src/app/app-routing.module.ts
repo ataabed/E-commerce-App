@@ -23,7 +23,7 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 
 const routes: Routes = [
-    {path:'',redirectTo:'home',pathMatch:"full"}, 
+    {path:'',redirectTo:'login',pathMatch:"full"}, 
   {path:'home',canActivate:[authGuard],component:HomeComponent,title:'Home'},
   {path:'products',component:ProductsComponent,title:'products'},
   {path:'products/:categoryId',component:ProductsComponent,title:'products'},
